@@ -1,4 +1,4 @@
-# streamlabs-itw
+# streamlabs interview
 
 ## Project setup
 ```
