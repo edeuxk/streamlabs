@@ -15,5 +15,5 @@ export default new Vuex.Store({
     auth,
     liveStreams
   },
-  strict: debug,
+  strict: false,
 });

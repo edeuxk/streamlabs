@@ -1,10 +1,10 @@
 <template>
 	<div>
 		<div v-if="loggedIn">
-			<span style="text-color: #000"> {{ user.displayName }} </span>
+			<span style="color: #fff; margin: 5px"> {{ user.displayName }} </span>
 			<button class="btn btn-danger" @click="LOG_OUT()">Log Out</button>
 		</div>
-		<button class="btn btn-primary" v-if="!loggedIn" @click="LOG_IN()">Log in</button>
+		<button class="btn btn-primary" v-if="!loggedIn" @click=startLogin()>Log in</button>
 	</div>
 </template>
 
@@ -13,13 +13,23 @@
 
 	export default {
 		methods: {
-			...mapMutations(['LOG_IN', 'LOG_OUT'])
+			...mapMutations(['LOG_OUT']),
+			startLogin: async function(){
+				let results = await this.$store.dispatch('logIn', localStorage);
+
+				localStorage.accessToken = results.accessToken;
+				localStorage.displayName = results.displayName;
+				localStorage.email = results.email;
+				localStorage.photoURL = results.photoURL;
+				localStorage.uid = results.uid;
+				localStorage.m = results.m;
+			}
 		},
 		computed: {
 			...mapGetters(['user', 'loggedIn'])
 		},
-		beforeCreate() {
-			this.$store.dispatch('fetchCreds');
+		async beforeCreate() {
+			await this.$store.dispatch('checkAuth', localStorage);
 		}
 	};
 </script>

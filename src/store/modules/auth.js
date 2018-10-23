@@ -1,22 +1,22 @@
 import firebase from "../../helpers/firebase";
 
 const state = {
-	user: {}
+	user: {},
+	credential: ""
 };
 
 export const getters = {
 	user: state => state.user,
-	loggedIn: state => 'uid' in state.user
+	loggedIn: state => 'uid' in state.user,
+	credential: state => state.credential
 };
 
 export const mutations = {
 	SET_USER(state, payload) {
 		state.user = payload;
 	},
-	LOG_IN() {
-		const provider = new firebase.auth.GoogleAuthProvider();
-
-		firebase.auth().signInWithRedirect(provider);
+	SET_CREDENTIAL(state, payload) {
+		state.credential = payload;
 	},
 	LOG_OUT() {
 		firebase.auth().signOut();
@@ -24,17 +24,40 @@ export const mutations = {
 };
 
 export const actions = {
-	fetchCreds(store) {
-		firebase.auth().onAuthStateChanged((user) => {
-			if (user) {
-				const { displayName, email, photoURL, uid, m } = user;
-				const cleanedUser = { displayName, email, photoURL, uid, m};
+	logIn(store) {
+		return new Promise((resolve, reject) => {
+			const provider = new firebase.auth.GoogleAuthProvider();
+			provider.addScope("https://www.googleapis.com/auth/youtube");
+			provider.addScope("https://www.googleapis.com/auth/youtube.force-ssl");
+
+			firebase.auth().signInWithPopup(provider).then((result) => {
+				let { displayName, email, photoURL, uid, m } = result.user;
+				let cleanedUser = { displayName, email, photoURL, uid, m };
 
 				store.commit('SET_USER', cleanedUser);
-				/* Fetch live streams */
-				store.dispatch('fetchLiveStreams');
-			} else {
-				store.commit('SET_USER', {});
+
+				store.commit('SET_CREDENTIAL', result.credential.accessToken);
+				return resolve({
+					accessToken: result.credential.accessToken,
+					displayName: cleanedUser.displayName,
+					email: cleanedUser.email,
+					photoURL: cleanedUser.photoURL,
+					uid: cleanedUser.uid,
+					m: cleanedUser.m
+				});
+			});
+		});
+	},
+	checkAuth(store, localEnv){
+		return new Promise((resolve, reject) => {
+			if (localEnv.accessToken && localEnv.displayName && localEnv.email && localEnv.photoURL && localEnv.uid && localEnv.m){
+				let { displayName, email, photoURL, uid, m } = localEnv;
+				let cleanedUser = { displayName, email, photoURL, uid, m };
+
+				store.commit('SET_USER', cleanedUser);
+				store.commit('SET_CREDENTIAL', localEnv.accessToken);
+
+				return resolve(localEnv);
 			}
 		});
 	}

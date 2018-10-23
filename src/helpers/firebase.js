@@ -12,5 +12,5 @@ const config = {
 initializeApp(config);
 
 export default {
-  auth
+	auth
 }

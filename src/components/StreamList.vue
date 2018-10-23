@@ -38,6 +38,10 @@
 		computed: {
 			...mapGetters(['user', 'loggedIn', 'livestreams']),
 		},
+		async beforeCreate() {
+			await this.$store.dispatch('checkAuth', localStorage);
+			this.$store.dispatch('fetchLiveStreams');
+		}
 	};
 </script>
 
