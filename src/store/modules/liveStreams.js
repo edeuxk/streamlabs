@@ -30,8 +30,14 @@ export const mutations = {
 };
 
 export const actions = {
+	fetchLiveStreamsWithQuery(store, query) {
+		axios.get('https://www.googleapis.com/youtube/v3/search?part=snippet&eventType=live&q=' + query + '&type=video&&maxResults=40&key=' + store.getters.user.m)
+		.then(res => {
+			store.commit('SET_LIVESTREAMS', res);
+		});
+	},
 	fetchLiveStreams(store) {
-		axios.get('https://www.googleapis.com/youtube/v3/search?part=snippet&eventType=live&type=video&videoCategoryId=20&maxResults=25&key=' + store.getters.user.m)
+		axios.get('https://www.googleapis.com/youtube/v3/search?part=snippet&eventType=live&type=video&videoCategoryId=20&maxResults=40&key=' + store.getters.user.m)
 		.then(res => {
 			store.commit('SET_LIVESTREAMS', res);
 		});

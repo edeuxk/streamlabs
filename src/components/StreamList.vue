@@ -1,7 +1,7 @@
 <template>
 	<div class="container">
 		<div v-if="loggedIn">
-			<h1>Live streams</h1>
+			<h3>Live streams</h3>
 			<p>Hello {{ user.displayName }} what do you want to watch today?</p>
 
 			<div class="row">
@@ -19,7 +19,7 @@
 						<br>
 						Started {{ stream.snippet.publishedAt }}
 					</p>
-					<b-button v-bind:href="'#/view/' + stream.id.videoId" variant="primary">Watch stream</b-button>
+					<b-button v-bind:href="'/view/' + stream.id.videoId" variant="primary">Watch stream</b-button>
 				</b-card>
 			</div>
 		</div>
@@ -41,7 +41,7 @@
 		async beforeCreate() {
 			await this.$store.dispatch('checkAuth', localStorage);
 			this.$store.dispatch('fetchLiveStreams');
-		}
+		},
 	};
 </script>
 

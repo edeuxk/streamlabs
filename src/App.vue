@@ -5,21 +5,19 @@
 				<b-navbar toggleable="md" type="dark" variant="info">
 					<b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
 					<b-navbar-brand to="/">StreamLabs</b-navbar-brand>
-					<b-collapse is-nav id="nav_collapse">
+					<b-collapse is-nav id="nav_collapse">.
 						<b-navbar-nav>
 							<b-nav-item to="/">
 								Home
 							</b-nav-item>
+							<input type="text" class="form-control" placeholder="Search for a livestream" v-model="searchQuery" v-on:keyup.enter="searchLiveStreams">
+
 <!-- 							<b-nav-item to="/stats">
 								Stats
 							</b-nav-item>
- -->						</b-navbar-nav>
+						-->						</b-navbar-nav>
 
 						<b-navbar-nav class="ml-auto">
-							<b-nav-form>
-								<b-form-input size="sm" class="mr-sm-2" type="text" placeholder="Search"/>
-								<b-button size="sm" class="my-2 my-sm-0" type="submit">Search</b-button>
-							</b-nav-form>
 							<Auth></Auth>
 						</b-navbar-nav>
 					</b-collapse>
@@ -40,6 +38,18 @@
 	import Auth from "./components/Auth.vue";
 
 	export default {
-		components: { Auth }
+		data () {
+			return {
+				searchQuery: ""
+			}
+		},
+		components: { Auth },
+		methods: {
+			searchLiveStreams: function(){
+				console.log("Toto")
+				this.$store.dispatch('fetchLiveStreamsWithQuery', this.searchQuery);
+			}
+		}
+
 	}
 </script>
