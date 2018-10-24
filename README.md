@@ -1,6 +1,6 @@
 # My Streamlabs assigment
 
-Online example available here: https://edeux.github.io/streamlabs
+Online example available here: https://edeuxk.github.io/streamlabs/
 
 At first, by reading the coding assignment I was pretty sure that it could have been done easily within 8 hours only using Javascript/Jquery and HTML with a Python server.
 But I bet that you are looking for peoples that have a good ability to learn fast a new Framework/Language.. So, I decided to use a framework that I did not know and that you were using on your Stack: (VueJS)
@@ -42,7 +42,7 @@ My result:
 =============
 The client application is a single index.html, mobile responsive and serverless. It only use API's such as Google Youtube and Firebase.
 I think but I did not had time to build it, that my app is PWA compatible since I used vue-cli and I store the user credentials inside the local storage.
-I've chose to serve my app through edeux.github.io/streamlabs so you are sure that the app is 100% serverless and only running with a single HTML page.
+I've chose to serve my app through https://edeuxk.github.io/streamlabs/ so you are sure that the app is 100% serverless and only running with a single HTML page.
 I also could have create a python server that only serve the index.html file for all HTTP Requests.
 
 Note:
