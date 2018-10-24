@@ -25,9 +25,13 @@ Steps:
 * Done
 2. Alex should be presented with multiple livestreams to choose from on the home page.
 These are sourced from YT live api and selected/sorted based on logic you define
+* Done
 3. Alex should be able to click on a livestream to watch it
+* Done
 4. Alex should be able to see the associated chat session while watching Natalie's stream
+* Done
 5. Alex should be able to post messages to the chat session for the livestream he's viewing
+* Done
 6. All messages by Kevin to Natalie's livestream chat should be stored in a persistent storage
 7. Alex should be able to visit the stats page
 8. Alex should be able to search through all messages posted by Natalie's fans' usernames e.g. Kevin
