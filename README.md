@@ -40,7 +40,9 @@ These are sourced from YT live api and selected/sorted based on logic you define
 Bonus
 =============
 10. The SV webapp is mobile responsive and setup as a PWA
+
 Mobile responsive OK // PWA not sure.
+
 7 - 8 - 9 - 11 - 12. No, I did not had time.
 
 My result:
