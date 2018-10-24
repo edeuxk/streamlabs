@@ -4,8 +4,6 @@ Online example available here: https://edeux.github.io/streamlabs
 
 At first, by reading the coding assignment I was pretty sure that it could have been done easily within 8 hours only using Javascript/Jquery and HTML with a Python server.
 But I bet that you are looking for peoples that have a good ability to learn fast a new Framework/Language.. So, I decided to use a framework that I did not know and that you were using on your Stack: (VueJS)
-Link: https://gist.github.com/george731/53d7edfb01cfb25bc15494d8521aed98
-
 
 Day #1 - 4 hours
 =============

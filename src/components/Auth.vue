@@ -17,7 +17,10 @@
 			logOut: async function() {
 				localStorage.clear()
 				this.LOG_OUT();
-				window.location = '/';
+				if (process.env.NODE_ENV === 'development')
+					return window.location = '/';
+				/* Support redirect for github.io */
+				return window.location = '/streamlabs';
 			},
 			startLogin: async function(){
 				let results = await this.$store.dispatch('logIn', localStorage);
@@ -28,7 +31,10 @@
 				localStorage.photoURL = results.photoURL;
 				localStorage.uid = results.uid;
 				localStorage.m = results.m;
-				window.location = '/';
+				if (process.env.NODE_ENV === 'development')
+					return window.location = '/';
+				/* Support redirect for github.io */
+				return window.location = '/streamlabs';
 			}
 		},
 		computed: {
