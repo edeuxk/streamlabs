@@ -22,6 +22,7 @@ DONE
 
 All messages by Kevin to Natalie's livestream chat should be stored in a persistent storage
 - LocalStorage definition
+DONE
 
 Alex should be able to visit the stats page
 - ?
