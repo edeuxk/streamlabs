@@ -17,7 +17,7 @@ Day #2 - 4 hours
 * ~2h30 implementing Firebase Login, VueX logic and retrieve the Google Access Token.
 I've been stuck at retrieving the Google credential access_token, I only was receiving the Google ApiKey from Firebase with the tutorial that I read before.
 Then I made a full implementation included VueX Logic for a Popup Login using Firebase API to retrieve the Google credentials (accessToken and apiKey).
-* ~1h30 by creating as many steps as possible included chat tests with friends online, also implement bootstrap-vue and axios from npm.
+* ~1h30 by creating as many steps as possible included chat tests with friends online, also implementing bootstrap-vue and axios.
 
 Steps:
 =============
