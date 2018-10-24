@@ -15,6 +15,10 @@ export default new Router({
 		component: StreamList
 	},
 	{
+		path: '/streamlabs',
+		component: StreamList
+	},
+	{
 		path: '/view/:videoID',
 		component: StreamVideo
 	},
