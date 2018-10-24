@@ -34,6 +34,7 @@ These are sourced from YT live api and selected/sorted based on logic you define
 * Done
 6. All messages by Kevin to Natalie's livestream chat should be stored in a persistent storage
 7. Alex should be able to visit the stats page
+* Only on the video stream page, likes, dislikes, comments and views.
 8. Alex should be able to search through all messages posted by Natalie's fans' usernames e.g. Kevin
 9. Alex should be able to see a table with usernames, message count (plus any other stats you feel like). This table should be sortable.
 
