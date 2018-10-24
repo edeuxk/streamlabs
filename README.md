@@ -21,12 +21,13 @@ Then I made a full implementation included VueX Logic for a Popup Login using Fi
 
 Steps:
 =============
--[x] 1. Alex should be asked to login using his Google Account when he visits the SV website.
--[x] 2. Alex should be presented with multiple livestreams to choose from on the home page.
+1. Alex should be asked to login using his Google Account when he visits the SV website.
+* Done
+2. Alex should be presented with multiple livestreams to choose from on the home page.
 These are sourced from YT live api and selected/sorted based on logic you define
--[x] 3. Alex should be able to click on a livestream to watch it
--[x] 4. Alex should be able to see the associated chat session while watching Natalie's stream
--[x] 5. Alex should be able to post messages to the chat session for the livestream he's viewing
+3. Alex should be able to click on a livestream to watch it
+4. Alex should be able to see the associated chat session while watching Natalie's stream
+5. Alex should be able to post messages to the chat session for the livestream he's viewing
 6. All messages by Kevin to Natalie's livestream chat should be stored in a persistent storage
 7. Alex should be able to visit the stats page
 8. Alex should be able to search through all messages posted by Natalie's fans' usernames e.g. Kevin
