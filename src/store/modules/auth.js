@@ -35,7 +35,6 @@ export const actions = {
 				let cleanedUser = { displayName, email, photoURL, uid, m };
 
 				store.commit('SET_USER', cleanedUser);
-
 				store.commit('SET_CREDENTIAL', result.credential.accessToken);
 				return resolve({
 					accessToken: result.credential.accessToken,
@@ -56,7 +55,6 @@ export const actions = {
 
 				store.commit('SET_USER', cleanedUser);
 				store.commit('SET_CREDENTIAL', localEnv.accessToken);
-
 				return resolve(localEnv);
 			}
 		});

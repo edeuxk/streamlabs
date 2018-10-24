@@ -28,6 +28,7 @@
 				localStorage.photoURL = results.photoURL;
 				localStorage.uid = results.uid;
 				localStorage.m = results.m;
+				window.location = '/';
 			}
 		},
 		computed: {
