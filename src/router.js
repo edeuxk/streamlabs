@@ -7,7 +7,7 @@ import Auth from './components/Auth.vue';
 Vue.use(Router)
 
 export default new Router({
-	mode: 'history',
+	// mode: 'history', // Can't put history mode on github
 	base: process.env.BASE_URL,
 	routes: [
 	{

@@ -51,7 +51,8 @@
 		data () {
 			/* I only use this variable within this component, that's why it's not in the store */
 			return {
-				message: ""
+				message: "",
+				intervalComments: null
 			}
 		},
 		computed: {
@@ -73,11 +74,19 @@
 			container.scrollTop = container.scrollHeight;
 
 			/* Interval will automatically destroy when user leave the page*/
-			setInterval(() => {
+			this.intervalComments = setInterval(() => {
+				console.log("Comments updated");
+
 				this.$store.dispatch('fetchLiveComments');
 				var container = this.$el.querySelector("#messages");
 				container.scrollTop = container.scrollHeight;
 			}, 1500);
+		},
+		beforeDestroy() {
+			/* Since github.io don't handle the router history mode
+			* I have to manually kill the interval to stop fetching comments when user leave the page */
+			clearInterval(this.intervalComments);
+			console.log("Interval cleared");
 		}
 	};
 </script>
