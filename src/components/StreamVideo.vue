@@ -72,18 +72,14 @@
 			var container = this.$el.querySelector("#messages");
 			container.scrollTop = container.scrollHeight;
 
+			/* Interval will automatically destroy when user leave the page*/
 			setInterval(() => {
-				console.log("Hello");
 				this.$store.dispatch('fetchLiveComments');
 				var container = this.$el.querySelector("#messages");
 				container.scrollTop = container.scrollHeight;
 			}, 1500);
 		}
 	};
-	// window.setInterval(() => {
-	// 	var chatMsg = document.getElementById('messages');
-	// 	chatMsg.scrollTop = chatMsg.scrollHeight;
-	// }, 1500);
 </script>
 
 <style>

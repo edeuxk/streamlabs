@@ -75,7 +75,6 @@ export const actions = {
 	postComment(store, commentMessage){
 		return new Promise((resolve, reject) => {
 			try {
-				// POST https://www.googleapis.com/youtube/v3/liveChat/messages
 				axios.post('https://www.googleapis.com/youtube/v3/liveChat/messages?part=snippet&access_token=' + store.getters.credential, {
 					"snippet": {
 						"liveChatId": store.getters.videoData.items[0].liveStreamingDetails.activeLiveChatId,
@@ -84,7 +83,7 @@ export const actions = {
 							"messageText": commentMessage
 						}
 					}
-				}).then((response) => {
+				}).then(() => {
 					return resolve();
 				});
 			} catch (err) {

@@ -17,9 +17,10 @@
 						{{ stream.snippet.title }}
 						<br>
 						<br>
+						<!-- Add a filter to parse the date with moment.js -->
 						Started {{ stream.snippet.publishedAt }}
 					</p>
-					<b-button v-bind:href="'/view/' + stream.id.videoId" variant="primary">Watch stream</b-button>
+					<b-button v-bind:href="'/streamlabs/view/' + stream.id.videoId" variant="primary">Watch stream</b-button>
 				</b-card>
 			</div>
 		</div>
